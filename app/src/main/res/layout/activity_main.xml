@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutFullName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="Nome completo">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPhone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutFullName"
+        android:hint="Telefone">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutPhone"
+        android:hint="E-mail">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/checkBoxEmailList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingressar na lista de e-mails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail" />
+
+    <TextView
+        android:id="@+id/radioGroupTitle"
+        app:layout_constraintTop_toBottomOf="@id/checkBoxEmailList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sexo" />
+    <RadioGroup
+        android:orientation="horizontal"
+        android:id="@+id/radioGroupGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupTitle">
+
+        <RadioButton
+            android:id="@+id/radioButtonMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masculino" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feminino" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutCity"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupGender"
+        android:hint="Cidade">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonConfirm"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutCity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonClear"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonClear"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Limpar"
+        app:layout_constraintTop_toBottomOf="@id/buttonConfirm"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
