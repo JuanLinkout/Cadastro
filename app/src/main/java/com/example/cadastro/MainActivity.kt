@@ -3,6 +3,7 @@ package com.example.cadastro
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import com.example.cadastro.databinding.ActivityMainBinding
@@ -15,6 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ArrayAdapter.createFromResource(this, R.array.brazil_states, android.R.layout.simple_spinner_item).also {
+            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spinnerState.adapter = it
+        }
 
         binding.buttonConfirm.setOnClickListener { handleOnClickListener() }
         binding.buttonClear.setOnClickListener { handleOnClearClickListener() }
@@ -32,7 +38,8 @@ class MainActivity : AppCompatActivity() {
             city = binding.editTextCity.text.toString(),
             phone = binding.editTextPhone.text.toString(),
             sex = selectedText,
-            shouldReceiveNewsletter = if (binding.checkBoxEmailList.isChecked) "Sim" else "Não"
+            shouldReceiveNewsletter = if (binding.checkBoxEmailList.isChecked) "Sim" else "Não",
+            state = binding.spinnerState.selectedItem.toString()
         )
 
         Toast.makeText(this, form.toString(), Toast.LENGTH_SHORT).show()
